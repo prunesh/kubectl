@@ -1,7 +1,7 @@
-// Package filter implements the gtk-ai/kubectl filter logic.
+// Package filter implements the prunesh/kubectl filter logic.
 //
 // Contract:
-//   - id:      gtk-ai/kubectl
+//   - id:      prunesh/kubectl
 //   - command: kubectl
 //
 // Rewrite: injects --tail=100 into `logs` invocations that do not specify a
@@ -22,7 +22,7 @@ import (
 
 const (
 	// ID is the full filter identity following the author/<name> rule.
-	ID = "gtk-ai/kubectl"
+	ID = "prunesh/kubectl"
 
 	// Command is the argv0 intercepted by this module.
 	Command = "kubectl"

@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gtk-ai/kubectl/filter"
+	"github.com/prunesh/kubectl/filter"
 )
 
 // --- Rewrite ---
@@ -260,31 +260,31 @@ func TestFilterDeletePassthrough(t *testing.T) {
 // --- ID constant ---
 
 func TestID(t *testing.T) {
-	if filter.ID != "gtk-ai/kubectl" {
+	if filter.ID != "prunesh/kubectl" {
 		t.Fatalf("ID %q does not follow author/<cmd> rule", filter.ID)
 	}
 }
 
-// --- gtkai.json manifest ---
+// --- prunesh.json manifest ---
 
 func TestManifest(t *testing.T) {
-	data, err := os.ReadFile("gtkai.json")
+	data, err := os.ReadFile("prunesh.json")
 	if err != nil {
-		t.Fatalf("read gtkai.json: %v", err)
+		t.Fatalf("read prunesh.json: %v", err)
 	}
 
 	var manifest struct {
-		ID               string   `json:"id"`
-		Command          string   `json:"command"`
-		Platforms        []string `json:"platforms"`
-		Contract         string   `json:"contract"`
-		GtkaiCoreVersion struct {
+		ID                 string   `json:"id"`
+		Command            string   `json:"command"`
+		Platforms          []string `json:"platforms"`
+		Contract           string   `json:"contract"`
+		PruneshCoreVersion struct {
 			Version    string `json:"version"`
 			Constraint string `json:"constraint"`
-		} `json:"gtkai-core-version"`
+		} `json:"prunesh-core-version"`
 	}
 	if err := json.Unmarshal(data, &manifest); err != nil {
-		t.Fatalf("parse gtkai.json: %v", err)
+		t.Fatalf("parse prunesh.json: %v", err)
 	}
 	if manifest.ID != filter.ID {
 		t.Fatalf("manifest id %q != code id %q", manifest.ID, filter.ID)
@@ -295,11 +295,11 @@ func TestManifest(t *testing.T) {
 	if manifest.Contract != "stdin/v1" {
 		t.Fatalf("unexpected contract: %q", manifest.Contract)
 	}
-	if manifest.GtkaiCoreVersion.Version == "" {
-		t.Fatal("gtkai-core-version.version must not be empty")
+	if manifest.PruneshCoreVersion.Version == "" {
+		t.Fatal("prunesh-core-version.version must not be empty")
 	}
-	if manifest.GtkaiCoreVersion.Constraint != "min" && manifest.GtkaiCoreVersion.Constraint != "exact" {
-		t.Fatalf("unexpected gtkai-core-version.constraint: %q", manifest.GtkaiCoreVersion.Constraint)
+	if manifest.PruneshCoreVersion.Constraint != "min" && manifest.PruneshCoreVersion.Constraint != "exact" {
+		t.Fatalf("unexpected prunesh-core-version.constraint: %q", manifest.PruneshCoreVersion.Constraint)
 	}
 	if len(manifest.Platforms) == 0 {
 		t.Fatal("platforms must not be empty")

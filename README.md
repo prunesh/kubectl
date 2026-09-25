@@ -1,6 +1,6 @@
-# gtk-ai/kubectl
+# prunesh/kubectl
 
-Token-reduction plugin for [gtk-ai](https://github.com/gtk-ai/gtk-ai) that filters `kubectl` output.
+Token-reduction plugin for [prunesh](https://github.com/prunesh/prunesh) that filters `kubectl` output.
 
 `kubectl describe pod` can produce 80–200 lines of metadata, hashes, and volume details that rarely matter for an AI coding session. `kubectl get -o yaml` embeds `managedFields` blocks that can add 100+ lines of noise. This plugin strips the noise and keeps what's actionable.
 
@@ -35,22 +35,22 @@ Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists fo
 
 ## Install
 
-Requires [gtk-ai core](https://github.com/gtk-ai/gtk-ai) >= 0.12.0.
+Requires [prunesh core](https://github.com/prunesh/prunesh) >= 0.12.0.
 
 ```bash
-gtkai plugin install github.com/gtk-ai/kubectl@v0.1.0
+prunesh plugin install github.com/prunesh/kubectl@v0.1.0
 ```
 
 To replace an existing `kubectl` plugin:
 
 ```bash
-gtkai plugin install github.com/gtk-ai/kubectl@v0.1.0 --replace
+prunesh plugin install github.com/prunesh/kubectl@v0.1.0 --replace
 ```
 
 ## Uninstall
 
 ```bash
-gtkai plugin uninstall gtk-ai/kubectl
+prunesh plugin uninstall prunesh/kubectl
 ```
 
 ## How it works
