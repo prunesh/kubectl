@@ -1,8 +1,6 @@
 // Binary kubectl is the stdin/v1 filter for the `kubectl` command.
 // It reads a single JSON request from stdin, applies the filter logic,
 // and writes a single JSON response to stdout.
-//
-// Protocol: stdin/v1 — see the prunesh/date HOWTO.md for the module contract.
 package main
 
 import (

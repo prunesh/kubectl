@@ -35,16 +35,16 @@ Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists fo
 
 ## Install
 
-Requires [prunesh core](https://github.com/prunesh/prunesh) >= 0.12.0.
+Requires [prunesh core](https://github.com/prunesh/prunesh) >= 0.16.0.
 
 ```bash
-prunesh plugin install github.com/prunesh/kubectl@v0.1.0
+prunesh plugin install github.com/prunesh/kubectl@v0.3.0
 ```
 
 To replace an existing `kubectl` plugin:
 
 ```bash
-prunesh plugin install github.com/prunesh/kubectl@v0.1.0 --replace
+prunesh plugin install github.com/prunesh/kubectl@v0.3.0 --replace
 ```
 
 ## Uninstall
